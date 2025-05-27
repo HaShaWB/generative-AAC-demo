@@ -46,6 +46,9 @@ image_placeholder = st.container(height=300)
 
 if generate_button and keyword:
     print(f"DEBUG: Generating image for keyword: {keyword}")
+
+    if os.environ.get("ANTHROPIC_API_KEY") is None or os.environ.get("GENAI_API_KEY") is None:
+        st.error("API keys are not set. Please enter your API keys in the settings section.")
     
 
     with st.spinner("Generating Prompt..."):
